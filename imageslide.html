@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Light Of Grace</title>
+<link rel="stylesheet" href="style.css">
+</head>
+  
+<body>
+<p>
+<button id="prev1">&lang;</button>
+<button id="next1">&rang;</button>
+</p>          
+    
+    
+<hr> 
+    <p>
+<audio id="audio" src="" controls></audio>
+  <br><br>
+  <select id="select" size="3" onchange="play()">
+    <option value="http://drive.google.com/uc?export=view&id=19CLS-EPhZTrxSOG-eUGOjpFYwEX3EqRA">1. My God My Love</option>
+    <option value="http://drive.google.com/uc?export=view&id=1MEJpyhMh9zMR76jOb9LTK6OLBw44eHwQ">Ani Chofsh</option>
+    <option value="http://drive.google.com/uc?export=view&id=18mUZxL7JKgI7UyUWtA07VAXK01nzvEWN">Count On Me</option>
+  </select>
+  <button id="play" onclick="play()">play</button>
+  <button id="play" onclick="next()">next</button>
+
+  <script>
+    var audio = document.getElementById("audio");
+    var sel = document.getElementById("select");
+    var len = sel.length;
+    var idx = 0;
+    var playon = false;
+    
+    audio.onended = function (e) {
+      next();
+    }
+    
+    function play() {
+      if (sel.selectedIndex < 0) {
+          audio.src = sel.options[idx].value;
+          playon = true;
+      } else {
+          audio.src = sel.options[sel.selectedIndex].value;
+          idx =sel.selectedIndex;
+          playon = true;
+        }
+      audio.play();
+     }
+    
+    
+       function next() {
+      if (sel.selectedIndex < 0) {
+          if (idx + 1 < len) idx++;
+          else idx = 0;
+          
+          if (playon == false) idx = 0;
+          playon = true;
+      } else {
+          idx++;
+          if (idx >= len) idx = 0;
+          playon = true;
+          sel.selectedIndex = idx;
+      }
+      
+      audio.src = sel.options[idx].value;
+      audio.play();
+
+     }
+  </script>
+  </p>
+<hr>
+    
+<div id="slideShow">
+<div id="slides">
+  
+<img src="http://drive.google.com/uc?export=view&id=1WbfwGDPhtWXC1wR-ad5ROtsLH3mXAOpg" alt="">
+<img src="http://drive.google.com/uc?export=view&id=1WbFeR2QDzzGAHaB9AwyEVZAGRmIc9uJc" alt="">
+<img src="http://drive.google.com/uc?export=view&id=1WSDAYQ6T3c3wIWWR-1g_ONIvIUGUJ9sN" alt="">
+
+<img src="http://drive.google.com/uc?export=view&id=1X2tt1eNLlcxHhqocBkShVBLM7gDA-PRC" alt="">
+
+<img src="http://drive.google.com/uc?export=view&id=1XYmIoql3uvdaWTDa8WB5dLMVWAooQfC9" alt="">
+
+<img src="http://drive.google.com/uc?export=view&id=1_M0EIJ54nhQanipwY-O90VGLEdBlomTx" alt="">
+<img src="http://drive.google.com/uc?export=view&id=1Yp0HxSRMBdpJbasiFLBjKfQ5TGG6QtFK" alt="">
+
+</div>                 
+</div>
+
+<script src="slideshow.js"></script>
+
+   
+    
+</body>
+</html>
