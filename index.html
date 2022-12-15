@@ -1,1 +1,100 @@
-<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Light Of Grace</title><style>h2{color:#F5BBD9; margin-top: 2px;}h1{color:#F56ED9; margin-bottom: 5px;}body{padding: 0; margin: 0; width: 100%;} form{padding: 0; margin: 0;}  .img-wrapper {position: relative; width: 400px; height: 400px; padding: 0; margin: 0;}  .button {   background-color: #4CAF50; /* Green */   border: none;   color: white;   padding: 16px 32px;   text-align: center;   text-decoration: none;   display: inline-block;   font-size: 16px;   margin: 4px 2px;   -webkit-transition-duration: 0.4s; /* Safari */   transition-duration: 0.4s;   cursor: pointer; }  .button2 {   background-color: white;    color: black;    border: 2px solid #008CBA; }  .button2:hover {   background-color: #008CBA;   color: white; }  </style></head><body bgcolor="#FBE8E4"><h1 style="text-align: center;"">무한한 가능성</h1><h2 style="text-align: center;"">INFINITE POSSIBILITIES</h2><p style="text-align: center;"">  <div align: "center"class="img-wrapper" ><img src="http://drive.google.com/uc?export=view&id=1FieD-TScvdDIkcMk5V4qQoOvZ1IfpCI5" style=" width : 400px; " frameborder="0">  </div><hr>  <form frameborder="0"> <textarea id="content" rows="10" cols="50" placeholder="기도 내용을 입력하세요♥"></textarea> </form><button class="button button2" onclick="copy_to_clipboard()">카카오톡으로 복사</button><script> function copy_to_clipboard() {   var copyText = document.getElementById("content");   copyText.select();   document.execCommand("Copy"); } </script><hr>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Light Of Grace</title>
+<link rel="stylesheet" href="style.css">
+</head>
+  
+<body>
+<p>
+<button id="prev1">&lang;</button>
+<button id="next1">&rang;</button>
+</p>          
+    
+    
+<hr> 
+    <p>
+<audio id="audio" src="" controls></audio>
+  <br><br>
+  <select id="select" size="4" onchange="play()">
+    
+    <option value="http://drive.google.com/uc?export=view&id=19CLS-EPhZTrxSOG-eUGOjpFYwEX3EqRA">1. My God My Love</option>
+    <option value="http://drive.google.com/uc?export=view&id=192lWcNrofhP6YP5RkwgGhMyVCZewl3xm">2. Sheperd Of My Soul</option>
+    <option value="http://drive.google.com/uc?export=view&id=18ktLPjF6-20w9N_CtiwjJLbKvVUGDYzK">3. Shema Israel</option>
+    <option value="http://drive.google.com/uc?export=view&id=1-Ov8bI7VXrrE1OVvzPplxQPEgBSx6H2f">4. I Exalt Thee</option>
+      
+     </select>
+  <button id="play" onclick="play()">play</button>
+  <button id="play" onclick="next()">next</button>
+
+  <script>
+    var audio = document.getElementById("audio");
+    var sel = document.getElementById("select");
+    var len = sel.length;
+    var idx = 0;
+    var playon = false;
+    
+    audio.onended = function (e) {
+      next();
+    }
+    
+    function play() {
+      if (sel.selectedIndex < 0) {
+          audio.src = sel.options[idx].value;
+          playon = true;
+      } else {
+          audio.src = sel.options[sel.selectedIndex].value;
+          idx =sel.selectedIndex;
+          playon = true;
+        }
+      audio.play();
+     }
+    
+    
+       function next() {
+      if (sel.selectedIndex < 0) {
+          if (idx + 1 < len) idx++;
+          else idx = 0;
+          
+          if (playon == false) idx = 0;
+          playon = true;
+      } else {
+          idx++;
+          if (idx >= len) idx = 0;
+          playon = true;
+          sel.selectedIndex = idx;
+      }
+      
+      audio.src = sel.options[idx].value;
+      audio.play();
+
+     }
+  </script>
+  </p>
+<hr>
+    
+<div id="slideShow">
+<div id="slides">
+  
+<img src="http://drive.google.com/uc?export=view&id=1WbfwGDPhtWXC1wR-ad5ROtsLH3mXAOpg" alt="">
+<img src="http://drive.google.com/uc?export=view&id=1WbFeR2QDzzGAHaB9AwyEVZAGRmIc9uJc" alt="">
+<img src="http://drive.google.com/uc?export=view&id=1WSDAYQ6T3c3wIWWR-1g_ONIvIUGUJ9sN" alt="">
+
+<img src="http://drive.google.com/uc?export=view&id=1X2tt1eNLlcxHhqocBkShVBLM7gDA-PRC" alt="">
+
+<img src="http://drive.google.com/uc?export=view&id=1XYmIoql3uvdaWTDa8WB5dLMVWAooQfC9" alt="">
+
+<img src="http://drive.google.com/uc?export=view&id=1_M0EIJ54nhQanipwY-O90VGLEdBlomTx" alt="">
+<img src="http://drive.google.com/uc?export=view&id=1Yp0HxSRMBdpJbasiFLBjKfQ5TGG6QtFK" alt="">
+
+</div>                 
+</div>
+
+<script src="slideshow.js"></script>
+
+   
+    
+</body>
+</html>
