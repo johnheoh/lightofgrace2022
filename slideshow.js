@@ -43,5 +43,5 @@ function showSlides() {
   if(current > slides.length)  // 마지막 이미지라면
     current = 1;   // 첫 번째로 이동
   slides[current - 1 ].style.display = "block";  // 현재 위치 이미지 표시
-  setTimeout(showSlides, 10000);   // 2초마다 showSlides 함수 반복 실행 
+  setTimeout(showSlides, 7000);   // 2초마다 showSlides 함수 반복 실행 
 }
