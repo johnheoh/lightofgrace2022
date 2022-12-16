@@ -7,7 +7,6 @@
   clear:both;   /* 플로팅 해제 */
   width:100%;    /* 너비 */ 
   height:100%;   /* 높이 */ 
-  overflow:hidde   /* 영역 넘치면 감춤 */ 
   position: relative;
 }
 #slides {
